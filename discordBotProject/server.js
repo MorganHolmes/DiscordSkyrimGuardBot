@@ -33,17 +33,20 @@ function generateEmbedMessage(){
 client.on('message', mess =>{
   if (mess.content === 'Guard'){
     var VC = mess.member.voiceChannel;
-    VC.join()
-      .then(connection => {
-        const dispatcher = connection.playFile('./SkyrimQuotes/NOLOLLYGAGGIN.mp3');
-        dispatcher.on("end", end => {VC.leave()});
-    }).catch(err => console.log(err));
-
+    if(VC == undefined){
+      console.log("User Is Not Part Of A Voice Channel");
+    }else{
+    
+      VC.join()
+        .then(connection => {
+          const dispatcher = connection.playFile('./SkyrimQuotes/NOLOLLYGAGGIN.mp3');
+          dispatcher.on("end", end => {VC.leave()});
+      }).catch(err => console.log(err));
+    }
     mess.channel.send(generateEmbedMessage());
     console.log("Bot Reply Has Been Successfully Sent");
   }
-})
-
+});
 
 //Logs into the client object using the bot ref
-client.login('NTUyNjAwODAzODI3Nzc3NTM5.D2B5nA.zS3yLWNJtSD89lAw2f9Wi4faKkM');
+client.login('NTUyNjAwODAzODI3Nzc3NTM5.XeVKFw.J70lAu_R-LHh5gyZfHzp8XU5MBM');
