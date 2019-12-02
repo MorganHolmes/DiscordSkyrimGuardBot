@@ -49,4 +49,4 @@ client.on('message', mess =>{
 });
 
 //Logs into the client object using the bot ref
-client.login('NTUyNjAwODAzODI3Nzc3NTM5.XeVKFw.J70lAu_R-LHh5gyZfHzp8XU5MBM');
+client.login('');
